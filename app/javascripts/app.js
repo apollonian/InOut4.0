@@ -43,10 +43,13 @@ function performAction(isNotFake){
 	 * everywhere we have a transaction call
 	 */
 	Voting.deployed().then(function(contractInstance) {
-		contractInstance.voteForCandidate(candidateName, isNotFake, {gas: 1400000, from: web3.eth.accounts[1]}).then(function() {
+		contractInstance.voteForCandidate(candidateName, isNotFake, {gas: 1400000, from: web3.eth.accounts[2]}).then(function() {
 			let div_id = candidates[candidateName];
 			return contractInstance.totalVotesFor.call(candidateName).then(function(v) {
-				$("#" + div_id).html(v[0].toString());
+				let count = v[0].toString();
+				count = count.split(',')[0] || count;
+
+				$("#" + div_id).html(count);
 				$("#msg").html("");
 			});
 		});
@@ -64,7 +67,7 @@ window.buyTokens = function() {
 	let price = tokensToBuy * tokenPrice;
 	$("#buy-msg").html("Purchase order has been submitted. Please wait.");
 	Voting.deployed().then(function(contractInstance) {
-		contractInstance.buy({value: web3.toWei(price, 'ether'), from: web3.eth.accounts[1]}).then(function(v) {
+		contractInstance.buy({value: web3.toWei(price, 'ether'), from: web3.eth.accounts[2]}).then(function(v) {
 			$("#buy-msg").html("");
 			web3.eth.getBalance(contractInstance.address, function(error, result) {
 				$("#contract-balance").html(web3.fromWei(result.toString()) + " Ether");
@@ -116,9 +119,12 @@ function populateCandidateVotes() {
 		let name = candidateNames[i];
 		Voting.deployed().then(function(contractInstance) {
 			contractInstance.totalVotesFor.call(name).then(function(v) {
-				totalVotes += parseInt(v[0].toString());
+				let count = v[0].toString();
+				count = count.split(',')[0] || count;
+
+				totalVotes += parseInt(count);
 				$('.total-casted-votes').html(totalVotes);
-				$("#" + candidates[name]).html(v.toString());
+				$("#" + candidates[name]).html(count);
 			});
 		});
 	}
