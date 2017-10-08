@@ -116,6 +116,9 @@ function populateCandidateVotes() {
 		let name = candidateNames[i];
 		Voting.deployed().then(function(contractInstance) {
 			contractInstance.totalVotesFor.call(name).then(function(v) {
+				let count = v[0].toString();
+				count = count.split(',')[0] || count;
+				
 				totalVotes += parseInt(v[0].toString());
 				$('.total-casted-votes').html(totalVotes);
 				$("#" + candidates[name]).html(v.toString());
