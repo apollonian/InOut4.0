@@ -65,13 +65,13 @@
 				<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 22px;">Purchase Tokens</h2>
 				<div class="col-sm-12" style="padding: 0">
 					<div id="buy-msg"></div>
-					<input type="text" id="buy" class="col-sm-8" placeholder="Number of tokens to buy" style="height: 34px"/>&nbsp;
+					<input type="text" id="buy" class="col-sm-8" placeholder="Number of tokens to buy" style="height: 34px" />&nbsp;
 					<a href="#" onclick="buyTokens()" class="btn btn-primary">Buy</a>
 				</div>
 
 				<div class="col-md-12" style="padding: 0; margin-top: 32px">
 					<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 22px;">Identify</h2>
-					<input type="text" id="candidate" placeholder="Enter the news title" />
+					<input type="text" id="candidate" placeholder="Enter the Article Number" />
 				</div>
 			</div>
 		</div>
@@ -82,9 +82,10 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
+						<th style="font-family: 'Karla'">Article No.</th>
 						<th style="font-family: 'Karla'">Article Title</th>
-						<th style="font-family: 'Karla'">Fake Percentage</th>
-						<th style="font-family: 'Karla'">Vote</th>						
+						<th style="font-family: 'Karla'">Fake %</th>
+						<th style="font-family: 'Karla'">Vote</th>
 					</tr>
 				</thead>
 				<tbody id="candidate-rows">
