@@ -9,6 +9,11 @@ contract Voting {
 		uint[] tokensUsedPerCandidate;
 	}
 
+	struct vote {
+		uint value;
+		uint[] valueFor;
+	}
+
 	/* mapping is equivalent to an associate array or hash
 	 The key of the mapping is candidate name stored as type bytes32 and value is
 	 an unsigned integer which used to store the vote count
@@ -20,7 +25,7 @@ contract Voting {
 	 instead to store the list of candidates
 	 */
 
-	mapping (bytes32 => uint) public votesReceived;
+	mapping (bytes32 => vote) public votesReceived;
 
 	bytes32[] public candidateList;
 
@@ -39,14 +44,14 @@ contract Voting {
 		tokenPrice = pricePerToken;
 	}
 
-	function totalVotesFor(bytes32 candidate) constant returns (uint) {
-		return votesReceived[candidate];
+	function totalVotesFor(bytes32 candidate) constant returns (uint, uint[]) {
+		return (votesReceived[candidate].value, votesReceived[candidate].valueFor);
 	}
 
 	/* Instead of just taking the candidate name as an argument, we now also
 	 require the no. of tokens this voter wants to vote for the candidate
 	 */
-	function voteForCandidate(bytes32 candidate) {
+	function voteForCandidate(bytes32 candidate, uint isNotFake) {
 		uint index = indexOfCandidate(candidate);
 		if (index == uint(-1)) throw;
 
@@ -62,7 +67,8 @@ contract Voting {
 		uint availableTokens = voterInfo[msg.sender].tokensBought - totalTokensUsed(voterInfo[msg.sender].tokensUsedPerCandidate);
 		if (availableTokens < 1) throw;
 
-		votesReceived[candidate] += 1;
+		votesReceived[candidate].value += 1;
+		votesReceived[candidate].valueFor.push(uint(isNotFake));
 		// Store how many tokens were used for this candidate
 		voterInfo[msg.sender].tokensUsedPerCandidate[index] += 1;
 	}

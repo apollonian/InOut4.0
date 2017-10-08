@@ -23,22 +23,13 @@ let tokenPrice = null;
 
 let totalVotes = 0;
 
-window.voteForCandidate = function() {
+window.voteForCandidate = function(isNotFake) {
 	if(totalVotes > 20){
 		return;
 	}
 	totalVotes += 1;
 	$('.total-casted-votes').html(totalVotes);
-	performAction(1);
-}
-
-window.voteForNoneCandidate = function() {
-	if(totalVotes > 20){
-		return;
-	}
-	totalVotes += 1;
-	$('.total-casted-votes').html(totalVotes);
-	performAction(0);
+	performAction(isNotFake);
 }
 
 function performAction(isNotFake){
@@ -52,11 +43,12 @@ function performAction(isNotFake){
 	 * everywhere we have a transaction call
 	 */
 	Voting.deployed().then(function(contractInstance) {
-		contractInstance.voteForCandidate(candidateName.toString(), {gas: 1400000, from: web3.eth.accounts[1]}).then(function() {
+		contractInstance.voteForCandidate(candidateName, isNotFake, {gas: 1400000, from: web3.eth.accounts[1]}).then(function() {
 			let div_id = candidates[candidateName];
 			return contractInstance.totalVotesFor.call(candidateName).then(function(v) {
-				$("#" + div_id).html(v.toString());
-				$("#msg").html("");
+				console.log(v);
+				// $("#" + div_id).html(v.toString());
+				// $("#msg").html("");
 			});
 		});
 	});
@@ -125,9 +117,10 @@ function populateCandidateVotes() {
 		let name = candidateNames[i];
 		Voting.deployed().then(function(contractInstance) {
 			contractInstance.totalVotesFor.call(name).then(function(v) {
-				totalVotes += parseInt(v.toString());
-				$('.total-casted-votes').html(totalVotes);
-				$("#" + candidates[name]).html(v.toString());
+				console.log(v[0], v[1]);
+				// totalVotes += parseInt(v[0].toString());
+				// $('.total-casted-votes').html(totalVotes);
+				// $("#" + candidates[name]).html(v.toString());
 			});
 		});
 	}
