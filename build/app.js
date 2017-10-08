@@ -6595,8 +6595,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! bignumber.js v2.0.7 https://github.com/Mik
 
                         // Update the remainder.
                         if ( rem[0] ) {
-                            rem.push(xc[xi] || 0);
-                            remL = remL + 1;
+                            rem[remL++] = xc[xi] || 0;
                         } else {
                             rem = [ xc[xi] ];
                             remL = 1;
@@ -21975,7 +21974,7 @@ module.exports = Jsonrpc;
 /* 53 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"Voting","abi":[{"constant":true,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"totalVotesFor","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"candidate","type":"bytes32"},{"name":"votesInTokens","type":"uint256"},{"name":"isNotFake","type":"uint256"}],"name":"voteForCandidate","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokensSold","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"user","type":"address"}],"name":"voterDetails","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256[]"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"votesReceived","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalTokens","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokenPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"allCandidates","outputs":[{"name":"","type":"bytes32[]"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"account","type":"address"}],"name":"transferTo","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"buy","outputs":[{"name":"","type":"uint256"}],"payable":true,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidateList","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"voterInfo","outputs":[{"name":"voterAddress","type":"address"},{"name":"tokensBought","type":"uint256"},{"name":"voteCount","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"incrementTokenValue","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"balanceTokens","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"indexOfCandidate","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"tokens","type":"uint256"},{"name":"pricePerToken","type":"uint256"},{"name":"candidateNames","type":"bytes32[]"}],"payable":false,"type":"constructor"}],"unlinked_binary":"0x6060604052341561000f57600080fd5b6040516109b93803806109b983398101604052808051919060200180519190602001805190910190505b600281805161004c929160200190610065565b506003839055600483905560058290555b5050506100d4565b8280548282559060005260206000209081019282156100a2579160200282015b828111156100a25782518255602090920191600190910190610085565b5b506100af9291506100b3565b5090565b6100d191905b808211156100af57600081556001016100b9565b5090565b90565b6108d6806100e36000396000f300606060405236156100d85763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416632f265cf781146100dd578063398af7f614610105578063518ab2a8146101235780635938750d146101485780637021939f146101c25780637e1c0c09146101ea5780637ff9b5961461020f57806381c4071514610234578063a03fa7e31461029b578063a6f2ae3a146102bc578063b13c744b146102d6578063cdf58d35146102fe578063e19e34db14610353578063e4494a0f1461036b578063ecd098b014610390575b600080fd5b34156100e857600080fd5b6100f36004356103b8565b60405190815260200160405180910390f35b341561011057600080fd5b6101216004356024356044356103cd565b005b341561012e57600080fd5b6100f361056d565b60405190815260200160405180910390f35b341561015357600080fd5b610167600160a060020a0360043516610578565b60405182815260406020820181815290820183818151815260200191508051906020019060200280838360005b838110156101ad5780820151818401525b602001610194565b50505050905001935050505060405180910390f35b34156101cd57600080fd5b6100f3600435610606565b60405190815260200160405180910390f35b34156101f557600080fd5b6100f3610618565b60405190815260200160405180910390f35b341561021a57600080fd5b6100f361061e565b60405190815260200160405180910390f35b341561023f57600080fd5b610247610624565b60405160208082528190810183818151815260200191508051906020019060200280838360005b838110156102875780820151818401525b60200161026e565b505050509050019250505060405180910390f35b34156102a657600080fd5b610121600160a060020a0360043516610684565b005b6100f36106c5565b60405190815260200160405180910390f35b34156102e157600080fd5b6100f3600435610737565b60405190815260200160405180910390f35b341561030957600080fd5b61031d600160a060020a036004351661075a565b6040518084600160a060020a0316600160a060020a03168152602001838152602001828152602001935050505060405180910390f35b341561035e57600080fd5b610121600435610785565b005b341561037657600080fd5b6100f36107a7565b60405190815260200160405180910390f35b341561039b57600080fd5b6100f36004356107ad565b60405190815260200160405180910390f35b6000818152600160205260409020545b919050565b60008060006103db866107ad565b92506000198314156103ec57600080fd5b600160a060020a033316600090815260208190526040902060020154151561046857600091505b60025482101561046857600160a060020a0333166000908152602081905260409020600201805460018101610448838261083b565b916000526020600020900160005b5060009055505b600190910190610413565b5b6104e760008033600160a060020a0316600160a060020a031681526020019081526020016000206002018054806020026020016040519081016040528092919081815260200182805480156104dd57602002820191906000526020600020905b8154815260200190600101908083116104c9575b50505050506107ff565b600160a060020a0333166000908152602081905260409020600101540390508481101561051357600080fd5b6000868152600160209081526040808320805489019055600160a060020a033316835290829052902060020180548691908590811061054e57fe5b906000526020600020900160005b50805490910190555b505050505050565b600454600354035b90565b6000610582610865565b600160a060020a038316600090815260208181526040918290206001810154600290910180549193909283929182820290910190519081016040528092919081815260200182805480156105f557602002820191906000526020600020905b8154815260200190600101908083116105e1575b50505050509050915091505b915091565b60016020526000908152604090205481565b60035481565b60055481565b61062c610865565b600280548060200260200160405190810160405280929190818152602001828054801561067957602002820191906000526020600020905b81548152600190910190602001808311610664575b505050505090505b90565b80600160a060020a03166108fc30600160a060020a0316319081150290604051600060405180830381858888f1935050505015156106c157600080fd5b5b50565b600080600554348115156106d557fe5b0490506004548111156106e757600080fd5b600160a060020a0333166000818152602081905260409020805473ffffffffffffffffffffffffffffffffffffffff191690911781556001018054820190556004805482900390559050805b5090565b600280548290811061074557fe5b906000526020600020900160005b5054905081565b600060208190529081526040902080546001820154600490920154600160a060020a03909116919083565b600160a060020a03331660009081526020819052604090206001018190555b50565b60045481565b6000805b6002548110156107f35760028054849190839081106107cc57fe5b906000526020600020900160005b505414156107ea578091506107f9565b5b6001016107b1565b60001991505b50919050565b600080805b83518110156108305783818151811061081957fe5b90602001906020020151820191505b600101610804565b8192505b5050919050565b81548183558181151161085f5760008381526020902061085f918101908301610889565b5b505050565b60206040519081016040526000815290565b60206040519081016040526000815290565b61057591905b80821115610733576000815560010161088f565b5090565b905600a165627a7a72305820fc5c2b16d8ac8c880bcedba83a8ee9afc6a265d27a279e061f2aad140ef755a00029","networks":{"1507423114232":{"events":{},"links":{},"address":"0x2e0c460c96865d5bf7a13f283fea27506c2feaf7","updated_at":1507423126520},"1507429870424":{"events":{},"links":{},"address":"0xdffeb2669f4cf7ba2ff48c1eedf23fa2868b9a90","updated_at":1507429874618},"1507432811528":{"events":{},"links":{},"address":"0x5ef4e41e2abd8cae9c576e6df9f3b199a6488840","updated_at":1507432941057},"1507433590862":{"events":{},"links":{},"address":"0x8520c8fcc81a916dad84a48da7ff14380a6250ff","updated_at":1507433607163}},"schema_version":"0.0.5","updated_at":1507436408883}
+module.exports = {"contract_name":"Voting","abi":[{"constant":true,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"totalVotesFor","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"candidate","type":"bytes32"},{"name":"votesInTokens","type":"uint256"},{"name":"isNotFake","type":"uint256"}],"name":"voteForCandidate","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokensSold","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"user","type":"address"}],"name":"voterDetails","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256[]"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"votesReceived","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalTokens","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tokenPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"allCandidates","outputs":[{"name":"","type":"bytes32[]"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"account","type":"address"}],"name":"transferTo","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"buy","outputs":[{"name":"","type":"uint256"}],"payable":true,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidateList","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"voterInfo","outputs":[{"name":"voterAddress","type":"address"},{"name":"tokensBought","type":"uint256"},{"name":"voteCount","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"incrementTokenValue","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"balanceTokens","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"candidate","type":"bytes32"}],"name":"indexOfCandidate","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"tokens","type":"uint256"},{"name":"pricePerToken","type":"uint256"},{"name":"candidateNames","type":"bytes32[]"}],"payable":false,"type":"constructor"}],"unlinked_binary":"0x6060604052341561000f57600080fd5b6040516109c63803806109c683398101604052808051919060200180519190602001805190910190505b600281805161004c929160200190610065565b506003839055600483905560058290555b5050506100d4565b8280548282559060005260206000209081019282156100a2579160200282015b828111156100a25782518255602090920191600190910190610085565b5b506100af9291506100b3565b5090565b6100d191905b808211156100af57600081556001016100b9565b5090565b90565b6108e3806100e36000396000f300606060405236156100d85763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416632f265cf781146100dd578063398af7f614610105578063518ab2a8146101235780635938750d146101485780637021939f146101c25780637e1c0c09146101ea5780637ff9b5961461020f57806381c4071514610234578063a03fa7e31461029b578063a6f2ae3a146102bc578063b13c744b146102d6578063cdf58d35146102fe578063e19e34db14610353578063e4494a0f1461036b578063ecd098b014610390575b600080fd5b34156100e857600080fd5b6100f36004356103b8565b60405190815260200160405180910390f35b341561011057600080fd5b6101216004356024356044356103cd565b005b341561012e57600080fd5b6100f361057a565b60405190815260200160405180910390f35b341561015357600080fd5b610167600160a060020a0360043516610585565b60405182815260406020820181815290820183818151815260200191508051906020019060200280838360005b838110156101ad5780820151818401525b602001610194565b50505050905001935050505060405180910390f35b34156101cd57600080fd5b6100f3600435610613565b60405190815260200160405180910390f35b34156101f557600080fd5b6100f3610625565b60405190815260200160405180910390f35b341561021a57600080fd5b6100f361062b565b60405190815260200160405180910390f35b341561023f57600080fd5b610247610631565b60405160208082528190810183818151815260200191508051906020019060200280838360005b838110156102875780820151818401525b60200161026e565b505050509050019250505060405180910390f35b34156102a657600080fd5b610121600160a060020a0360043516610691565b005b6100f36106d2565b60405190815260200160405180910390f35b34156102e157600080fd5b6100f3600435610744565b60405190815260200160405180910390f35b341561030957600080fd5b61031d600160a060020a0360043516610767565b6040518084600160a060020a0316600160a060020a03168152602001838152602001828152602001935050505060405180910390f35b341561035e57600080fd5b610121600435610792565b005b341561037657600080fd5b6100f36107b4565b60405190815260200160405180910390f35b341561039b57600080fd5b6100f36004356107ba565b60405190815260200160405180910390f35b6000818152600160205260409020545b919050565b60008060006103db866107ba565b92506000198314156103ec57600080fd5b600160a060020a033316600090815260208190526040902060020154151561046857600091505b60025482101561046857600160a060020a03331660009081526020819052604090206002018054600181016104488382610848565b916000526020600020900160005b5060009055505b600190910190610413565b5b6104e760008033600160a060020a0316600160a060020a031681526020019081526020016000206002018054806020026020016040519081016040528092919081815260200182805480156104dd57602002820191906000526020600020905b8154815260200190600101908083116104c9575b505050505061080c565b600160a060020a0333166000908152602081905260409020600101540390508481101561051357600080fd5b83600114156105315760008681526001602052604090208054860190555b600160a060020a033316600090815260208190526040902060020180548691908590811061055b57fe5b906000526020600020900160005b50805490910190555b505050505050565b600454600354035b90565b600061058f610872565b600160a060020a0383166000908152602081815260409182902060018101546002909101805491939092839291828202909101905190810160405280929190818152602001828054801561060257602002820191906000526020600020905b8154815260200190600101908083116105ee575b50505050509050915091505b915091565b60016020526000908152604090205481565b60035481565b60055481565b610639610872565b600280548060200260200160405190810160405280929190818152602001828054801561068657602002820191906000526020600020905b81548152600190910190602001808311610671575b505050505090505b90565b80600160a060020a03166108fc30600160a060020a0316319081150290604051600060405180830381858888f1935050505015156106ce57600080fd5b5b50565b600080600554348115156106e257fe5b0490506004548111156106f457600080fd5b600160a060020a0333166000818152602081905260409020805473ffffffffffffffffffffffffffffffffffffffff191690911781556001018054820190556004805482900390559050805b5090565b600280548290811061075257fe5b906000526020600020900160005b5054905081565b600060208190529081526040902080546001820154600490920154600160a060020a03909116919083565b600160a060020a03331660009081526020819052604090206001018190555b50565b60045481565b6000805b6002548110156108005760028054849190839081106107d957fe5b906000526020600020900160005b505414156107f757809150610806565b5b6001016107be565b60001991505b50919050565b600080805b835181101561083d5783818151811061082657fe5b90602001906020020151820191505b600101610811565b8192505b5050919050565b81548183558181151161086c5760008381526020902061086c918101908301610896565b5b505050565b60206040519081016040526000815290565b60206040519081016040526000815290565b61058291905b80821115610740576000815560010161089c565b5090565b905600a165627a7a7230582086e00d5399fd209264ac0c8cb742b1817234c8ab8ed9ffd34c046398828fc3c50029","networks":{"1507423114232":{"events":{},"links":{},"address":"0x2e0c460c96865d5bf7a13f283fea27506c2feaf7","updated_at":1507423126520},"1507429870424":{"events":{},"links":{},"address":"0xdffeb2669f4cf7ba2ff48c1eedf23fa2868b9a90","updated_at":1507429874618},"1507432811528":{"events":{},"links":{},"address":"0x5ef4e41e2abd8cae9c576e6df9f3b199a6488840","updated_at":1507432941057},"1507433590862":{"events":{},"links":{},"address":"0x8520c8fcc81a916dad84a48da7ff14380a6250ff","updated_at":1507433607163},"1507443428228":{"events":{},"links":{},"address":"0xf39fde475250d22fe7847155ce046212e29ca663","updated_at":1507443439994},"1507445265727":{"events":{},"links":{},"address":"0x7f07eb057e0b736328066a45c402e05d84899e5a","updated_at":1507445274577},"1507445498926":{"events":{},"links":{},"address":"0xd62a2cc14d68c8ff844b96a6f9e3e4ecc005c6e9","updated_at":1507445516356},"1507446389124":{"events":{},"links":{},"address":"0x902818ab4da46a8044ce2900d3a8b0cb2df2322a","updated_at":1507446509295},"1507447314129":{"events":{},"links":{},"address":"0xc034363c5e4efab2ed83cdee80c785f878fc20f4","updated_at":1507447387480},"1507448017059":{"events":{},"links":{},"address":"0xdbf2637159e9e663efb881c9d4951904431fcfc6","updated_at":1507448046302},"1507449928793":{"events":{},"links":{},"address":"0x69f4069e8f2de6ec8ea194e87fac02459c894f5e","updated_at":1507449953505},"1507450119674":{"events":{},"links":{},"address":"0x3f2f791e29a6f90ec995f6f6069d92e369feb1c6","updated_at":1507450128263},"1507450188170":{"events":{},"links":{},"address":"0xfd2afb0dc22c2e7858f645eec696e4df4f328d8d","updated_at":1507450194676}},"schema_version":"0.0.5","updated_at":1507450194676}
 
 /***/ }),
 /* 54 */
@@ -22107,40 +22106,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var Voting = __WEBPACK_IMPORTED_MODULE_2_truffle_contract___default()(__WEBPACK_IMPORTED_MODULE_3__build_contracts_Voting_json___default.a);
-
 let candidates = {}
-
 let tokenPrice = null;
 
+let totalVotes = 0;
 
-window.voteForCandidate = function() {
-  performAction(1);
+window.voteForCandidate = function () {
+	if (totalVotes > 20) {
+		return;
+	}
+	totalVotes += 1;
+	$('.total-casted-votes').html(totalVotes);
+	performAction(1);
 }
 
-window.voteForNoneCandidate = function() {
-  performAction(0);
+window.voteForNoneCandidate = function () {
+	if (totalVotes > 20) {
+		return;
+	}
+	totalVotes += 1;
+	$('.total-casted-votes').html(totalVotes);
+	performAction(0);
 }
 
-function performAction(isNotFake){
-  let candidateName = $("#candidate").val();
-  let voteTokens = $("#vote-tokens").val();
-  $("#msg").html("Vote has been submitted. The vote count will increment as soon as the vote is recorded on the blockchain. Please wait.")
-  $("#candidate").val("");
-  $("#vote-tokens").val("");
+function performAction(isNotFake) {
+	let candidateName = $("#candidate").val();
+	$("#msg").html("Vote has been submitted. The vote count will increment as soon as the vote is recorded on the blockchain.")
+	$("#candidate").val("");
+	$("#vote-tokens").val("");
 
-  /* Voting.deployed() returns an instance of the contract. Every call
-   * in Truffle returns a promise which is why we have used then()
-   * everywhere we have a transaction call
-   */
-  Voting.deployed().then(function(contractInstance) {
-    contractInstance.voteForCandidate(candidateName, voteTokens, isNotFake, {gas: 140000, from: web3.eth.accounts[0]}).then(function() {
-      let div_id = candidates[candidateName];
-      return contractInstance.totalVotesFor.call(candidateName).then(function(v) {
-        $("#" + div_id).html(v.toString());
-        $("#msg").html("");
-      });
-    });
-  });
+	/* Voting.deployed() returns an instance of the contract. Every call
+	 * in Truffle returns a promise which is why we have used then()
+	 * everywhere we have a transaction call
+	 */
+	Voting.deployed().then(function (contractInstance) {
+		contractInstance.voteForCandidate(candidateName, 1, isNotFake, {
+			gas: 1400000,
+			from: web3.eth.accounts[0]
+		}).then(function () {
+			let div_id = candidates[candidateName];
+			return contractInstance.totalVotesFor.call(candidateName).then(function (v) {
+				$("#" + div_id).html(v.toString());
+				$("#msg").html("");
+			});
+		});
+	});
 }
 
 
@@ -22149,35 +22159,38 @@ function performAction(isNotFake){
  * from Ether to Wei.
  */
 
-window.buyTokens = function() {
-  let tokensToBuy = $("#buy").val();
-  let price = tokensToBuy * tokenPrice;
-  $("#buy-msg").html("Purchase order has been submitted. Please wait.");
-  Voting.deployed().then(function(contractInstance) {
-    contractInstance.buy({value: web3.toWei(price, 'ether'), from: web3.eth.accounts[0]}).then(function(v) {
-      $("#buy-msg").html("");
-      web3.eth.getBalance(contractInstance.address, function(error, result) {
-        $("#contract-balance").html(web3.fromWei(result.toString()) + " Ether");
-      });
-    })
-  });
-  populateTokenData();
+window.buyTokens = function () {
+	let tokensToBuy = $("#buy").val();
+	let price = tokensToBuy * tokenPrice;
+	$("#buy-msg").html("Purchase order has been submitted. Please wait.");
+	Voting.deployed().then(function (contractInstance) {
+		contractInstance.buy({
+			value: web3.toWei(price, 'ether'),
+			from: web3.eth.accounts[0]
+		}).then(function (v) {
+			$("#buy-msg").html("");
+			web3.eth.getBalance(contractInstance.address, function (error, result) {
+				$("#contract-balance").html(web3.fromWei(result.toString()) + " Ether");
+			});
+		})
+	});
+	populateTokenData();
 }
 
-window.lookupVoterInfo = function() {
-  let address = $("#voter-info").val();
-  Voting.deployed().then(function(contractInstance) {
-    contractInstance.voterDetails.call(address).then(function(v) {
-      $("#tokens-bought").html("Total Tokens bought: " + v[0].toString());
-      let votesPerCandidate = v[1];
-      $("#votes-cast").empty();
-      $("#votes-cast").append("Votes cast per candidate: <br>");
-      let allCandidates = Object.keys(candidates);
-      for(let i=0; i < allCandidates.length; i++) {
-        $("#votes-cast").append(allCandidates[i] + ": " + votesPerCandidate[i] + "<br>");
-      }
-    });
-  });
+window.lookupVoterInfo = function () {
+	let address = $("#voter-info").val();
+	Voting.deployed().then(function (contractInstance) {
+		contractInstance.voterDetails.call(address).then(function (v) {
+			$("#tokens-bought").html("Total Tokens bought: " + v[0].toString());
+			let votesPerCandidate = v[1];
+			$("#votes-cast").empty();
+			$("#votes-cast").append("Votes cast per candidate: <br>");
+			let allCandidates = Object.keys(candidates);
+			for (let i = 0; i < allCandidates.length; i++) {
+				$("#votes-cast").append(allCandidates[i] + ": " + votesPerCandidate[i] + "<br>");
+			}
+		});
+	});
 }
 
 /* Instead of hardcoding the candidates hash, we now fetch the candidate list from
@@ -22185,77 +22198,79 @@ window.lookupVoterInfo = function() {
  * table in the UI with all the candidates and the votes they have received.
  */
 function populateCandidates() {
-  Voting.deployed().then(function(contractInstance) {
-    contractInstance.allCandidates.call().then(function(candidateArray) {
-      for(let i=0; i < candidateArray.length; i++) {
-        /* We store the candidate names as bytes32 on the blockchain. We use the
-         * handy toUtf8 method to convert from bytes32 to string
-         */
-        candidates[web3.toUtf8(candidateArray[i])] = "candidate-" + i;
-      }
-      setupCandidateRows();
-      populateCandidateVotes();
-      populateTokenData();
-    });
-  });
+	Voting.deployed().then(function (contractInstance) {
+		contractInstance.allCandidates.call().then(function (candidateArray) {
+			for (let i = 0; i < candidateArray.length; i++) {
+				/* We store the candidate names as bytes32 on the blockchain. We use the
+				 * handy toUtf8 method to convert from bytes32 to string
+				 */
+				candidates[web3.toUtf8(candidateArray[i])] = "candidate-" + i;
+			}
+			setupCandidateRows();
+			populateCandidateVotes();
+			populateTokenData();
+		});
+	});
 }
 
 function populateCandidateVotes() {
-  let candidateNames = Object.keys(candidates);
-  for (var i = 0; i < candidateNames.length; i++) {
-    let name = candidateNames[i];
-    Voting.deployed().then(function(contractInstance) {
-      contractInstance.totalVotesFor.call(name).then(function(v) {
-        console.log(v);
-        $("#" + candidates[name]).html(v.toString());
-      });
-    });
-  }
+	let candidateNames = Object.keys(candidates);
+	for (var i = 0; i < candidateNames.length; i++) {
+		let name = candidateNames[i];
+		Voting.deployed().then(function (contractInstance) {
+			contractInstance.totalVotesFor.call(name).then(function (v) {
+				console.log(v.toString());
+				totalVotes += parseInt(v.toString());
+				$('.total-casted-votes').html(totalVotes);
+				$("#" + candidates[name]).html(v.toString());
+			});
+		});
+	}
 }
 
 function setupCandidateRows() {
-  Object.keys(candidates).forEach(function (candidate) { 
-    $("#candidate-rows").append("<tr><td>" + candidate + "</td><td id='" + candidates[candidate] + "'></td></tr>");
-  });
+	Object.keys(candidates).forEach(function (candidate) {
+		$("#candidate-rows").append(
+			"<tr><td>" + candidate + "</td><td id='" + candidates[candidate] + "'></td><td><a href='#' onclick='voteForCandidate(0)' class='btn btn-warning'>FAKE</a><a href='#' onclick='voteForCandidate(1)' class='btn btn-success' style='margin-left: 12px'>GENUINE</a></td></tr>");
+	});
 }
 
 /* Fetch the total tokens, tokens available for sale and the price of
  * each token and display in the UI
  */
 function populateTokenData() {
-  Voting.deployed().then(function(contractInstance) {
-    contractInstance.totalTokens().then(function(v) {
-      $("#tokens-total").html(v.toString());
-    });
-    contractInstance.tokensSold.call().then(function(v) {
-      $("#tokens-sold").html(v.toString());
-    });
-    contractInstance.tokenPrice().then(function(v) {
-      tokenPrice = parseFloat(web3.fromWei(v.toString()));
-      $("#token-cost").html(tokenPrice + " Ether");
-    });
-    web3.eth.getBalance(contractInstance.address, function(error, result) {
-      $("#contract-balance").html(web3.fromWei(result.toString()) + " Ether");
-    });
-  });
+	Voting.deployed().then(function (contractInstance) {
+		contractInstance.totalTokens().then(function (v) {
+			$("#tokens-total").html(v.toString());
+		});
+		contractInstance.tokensSold.call().then(function (v) {
+			$("#tokens-sold").html(v.toString());
+		});
+		contractInstance.tokenPrice().then(function (v) {
+			tokenPrice = parseFloat(web3.fromWei(v.toString()));
+			$("#token-cost").html(tokenPrice + " Ether");
+		});
+		web3.eth.getBalance(contractInstance.address, function (error, result) {
+			$("#contract-balance").html(web3.fromWei(result.toString()) + " Ether");
+		});
+	});
 }
 
-$( document ).ready(function() {
-  if (typeof web3 !== 'undefined') {
-    console.warn("Using web3 detected from external source like Metamask")
-    // Use Mist/MetaMask's provider
-    window.web3 = new __WEBPACK_IMPORTED_MODULE_1_web3___default.a(web3.currentProvider);
-  } else {
-    console.warn("No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
-    // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    window.web3 = new __WEBPACK_IMPORTED_MODULE_1_web3___default.a(new __WEBPACK_IMPORTED_MODULE_1_web3___default.a.providers.HttpProvider("http://localhost:8545"));
-  }
+$(document).ready(function () {
+	if (typeof web3 !== 'undefined') {
+		console.warn("Using web3 detected from external source like Metamask")
+		// Use Mist/MetaMask's provider
+		window.web3 = new __WEBPACK_IMPORTED_MODULE_1_web3___default.a(web3.currentProvider);
+	} else {
+		console.warn("No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
+		// fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
+		window.web3 = new __WEBPACK_IMPORTED_MODULE_1_web3___default.a(new __WEBPACK_IMPORTED_MODULE_1_web3___default.a.providers.HttpProvider("http://localhost:8545"));
+	}
 
-  Voting.setProvider(web3.currentProvider);
-  populateCandidates();
+	Voting.setProvider(web3.currentProvider);
+	populateCandidates();
 
 });
-
 
 /***/ }),
 /* 57 */
@@ -28064,7 +28079,7 @@ module.exports = TruffleSchema;
 /* 96 */
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[[{"raw":"truffle-contract-schema@0.0.5","scope":null,"escapedName":"truffle-contract-schema","name":"truffle-contract-schema","rawSpec":"0.0.5","spec":"0.0.5","type":"version"},"/home/mcd-50/Personal/Hackathon/InOut4.0/node_modules/truffle-contract"]],"_from":"truffle-contract-schema@0.0.5","_id":"truffle-contract-schema@0.0.5","_inCache":true,"_location":"/truffle-contract-schema","_nodeVersion":"6.9.1","_npmOperationalInternal":{"host":"packages-12-west.internal.npmjs.com","tmp":"tmp/truffle-contract-schema-0.0.5.tgz_1485557985137_0.46875762194395065"},"_npmUser":{"name":"tcoulter","email":"tim@timothyjcoulter.com"},"_npmVersion":"3.10.8","_phantomChildren":{},"_requested":{"raw":"truffle-contract-schema@0.0.5","scope":null,"escapedName":"truffle-contract-schema","name":"truffle-contract-schema","rawSpec":"0.0.5","spec":"0.0.5","type":"version"},"_requiredBy":["/truffle-contract"],"_resolved":"https://registry.npmjs.org/truffle-contract-schema/-/truffle-contract-schema-0.0.5.tgz","_shasum":"5e9d20bd0bf2a27fe94310748249d484eee49961","_shrinkwrap":null,"_spec":"truffle-contract-schema@0.0.5","_where":"/home/mcd-50/Personal/Hackathon/InOut4.0/node_modules/truffle-contract","author":{"name":"Tim Coulter","email":"tim.coulter@consensys.net"},"bugs":{"url":"https://github.com/trufflesuite/truffle-schema/issues"},"dependencies":{"crypto-js":"^3.1.9-1"},"description":"JSON schema for contract artifacts","devDependencies":{"mocha":"^3.2.0"},"directories":{},"dist":{"shasum":"5e9d20bd0bf2a27fe94310748249d484eee49961","tarball":"https://registry.npmjs.org/truffle-contract-schema/-/truffle-contract-schema-0.0.5.tgz"},"gitHead":"cfa4313bd4bb95bf5b94f85185203ead418f9ee6","homepage":"https://github.com/trufflesuite/truffle-schema#readme","keywords":["ethereum","json","schema","contract","artifacts"],"license":"MIT","main":"index.js","maintainers":[{"name":"tcoulter","email":"tim@timothyjcoulter.com"}],"name":"truffle-contract-schema","optionalDependencies":{},"readme":"ERROR: No README data found!","repository":{"type":"git","url":"git+https://github.com/trufflesuite/truffle-schema.git"},"scripts":{"test":"mocha"},"version":"0.0.5"}
+module.exports = {"_from":"truffle-contract-schema@0.0.5","_id":"truffle-contract-schema@0.0.5","_inBundle":false,"_integrity":"sha1-Xp0gvQvyon/pQxB0gknUhO7kmWE=","_location":"/truffle-contract-schema","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"truffle-contract-schema@0.0.5","name":"truffle-contract-schema","escapedName":"truffle-contract-schema","rawSpec":"0.0.5","saveSpec":null,"fetchSpec":"0.0.5"},"_requiredBy":["/truffle-contract"],"_resolved":"https://registry.npmjs.org/truffle-contract-schema/-/truffle-contract-schema-0.0.5.tgz","_shasum":"5e9d20bd0bf2a27fe94310748249d484eee49961","_spec":"truffle-contract-schema@0.0.5","_where":"/home/abhi/Desktop/ethereum_voting_dapp/chapter3/node_modules/truffle-contract","author":{"name":"Tim Coulter","email":"tim.coulter@consensys.net"},"bugs":{"url":"https://github.com/trufflesuite/truffle-schema/issues"},"bundleDependencies":false,"dependencies":{"crypto-js":"^3.1.9-1"},"deprecated":false,"description":"JSON schema for contract artifacts","devDependencies":{"mocha":"^3.2.0"},"homepage":"https://github.com/trufflesuite/truffle-schema#readme","keywords":["ethereum","json","schema","contract","artifacts"],"license":"MIT","main":"index.js","name":"truffle-contract-schema","repository":{"type":"git","url":"git+https://github.com/trufflesuite/truffle-schema.git"},"scripts":{"test":"mocha"},"version":"0.0.5"}
 
 /***/ }),
 /* 97 */
