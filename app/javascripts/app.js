@@ -1,23 +1,11 @@
-// Import the page's CSS. Webpack will know what to do with it.
 import "../stylesheets/app.css";
 
-// Import libraries we need.
 import {
 	default as Web3
 } from 'web3';
 import {
 	default as contract
 } from 'truffle-contract'
-
-/*
- * When you compile and deploy your Voting contract,
- * truffle stores the abi and deployed address in a json
- * file in the build directory. We will use this information
- * to setup a Voting abstraction. We will use this abstraction
- * later to create an instance of the Voting contract.
- * Compare this against the index.js from our previous tutorial to see the difference
- * https://gist.github.com/maheshmurthy/f6e96d6b3fff4cd4fa7f892de8a1a1b4#file-index-js
- */
 
 import voting_artifacts from '../../build/contracts/Voting.json'
 
@@ -51,10 +39,6 @@ function performAction(isNotFake) {
 	$("#candidate").val("");
 	$("#vote-tokens").val("");
 
-	/* Voting.deployed() returns an instance of the contract. Every call
-	 * in Truffle returns a promise which is why we have used then()
-	 * everywhere we have a transaction call
-	 */
 	Voting.deployed().then(function (contractInstance) {
 		contractInstance.voteForCandidate(candidateName, 1, isNotFake, {
 			gas: 1400000,
@@ -68,12 +52,6 @@ function performAction(isNotFake) {
 		});
 	});
 }
-
-
-/* The user enters the total no. of tokens to buy. We calculate the total cost and send it in
- * the request. We have to send the value in Wei. So, we use the toWei helper method to convert
- * from Ether to Wei.
- */
 
 window.buyTokens = function () {
 	let tokensToBuy = $("#buy").val();
@@ -109,17 +87,10 @@ window.lookupVoterInfo = function () {
 	});
 }
 
-/* Instead of hardcoding the candidates hash, we now fetch the candidate list from
- * the blockchain and populate the array. Once we fetch the candidates, we setup the
- * table in the UI with all the candidates and the votes they have received.
- */
 function populateCandidates() {
 	Voting.deployed().then(function (contractInstance) {
 		contractInstance.allCandidates.call().then(function (candidateArray) {
 			for (let i = 0; i < candidateArray.length; i++) {
-				/* We store the candidate names as bytes32 on the blockchain. We use the
-				 * handy toUtf8 method to convert from bytes32 to string
-				 */
 				candidates[web3.toUtf8(candidateArray[i])] = "candidate-" + i;
 			}
 			setupCandidateRows();
@@ -162,9 +133,6 @@ function setupCandidateRows() {
 	});
 }
 
-/* Fetch the total tokens, tokens available for sale and the price of
- * each token and display in the UI
- */
 function populateTokenData() {
 	Voting.deployed().then(function (contractInstance) {
 		contractInstance.totalTokens().then(function (v) {
@@ -186,11 +154,9 @@ function populateTokenData() {
 $(document).ready(function () {
 	if (typeof web3 !== 'undefined') {
 		console.warn("Using web3 detected from external source like Metamask")
-		// Use Mist/MetaMask's provider
 		window.web3 = new Web3(web3.currentProvider);
 	} else {
 		console.warn("No web3 detected. Falling back to http://localhost:8545. You should remove this fallback when you deploy live, as it's inherently insecure. Consider switching to Metamask for development. More info here: http://truffleframework.com/tutorials/truffle-and-metamask");
-		// fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
 		window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 	}
 
