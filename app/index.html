@@ -29,13 +29,13 @@
 <body>
 	<div class="container">
 		<div style="display:flex; flex:1; align-items:center; flex-direction:column; justify-content:center; padding: 24px 0">
-			<h1 style="font-family: 'Karla'; font-weight: 700; font-size: 26px;">FAKE NEWS PREDICTION</h1>
+			<h1 style="font-family: 'Karla'; font-weight: 700; font-size: 26px; background-color: #0A0A0A; color: #FDFDFD">FAKE NEWS PREDICTION</h1>
 			<h2 style="font-family: 'Muli'; font-weight: 400; font-size: 16px; text-align: center; line-height: 1.42">A decentralized prediction market based on
 				<br />Ethereum to identify fake news</h2>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 22px;">Token Stats</h2>
+				<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 18px; text-transform: uppercase">Token Stats</h2>
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<tr style="display: none">
@@ -62,22 +62,22 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 22px;">Purchase Tokens</h2>
+				<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 18px; text-transform: uppercase">Purchase Tokens</h2>
 				<div class="col-sm-12" style="padding: 0">
 					<div id="buy-msg"></div>
 					<input type="text" id="buy" class="col-sm-8" placeholder="Number of tokens to buy" style="height: 34px" />&nbsp;
 					<a href="#" onclick="buyTokens()" class="btn btn-primary">Buy</a>
 				</div>
 
-				<div class="col-md-12" style="padding: 0; margin-top: 32px">
-					<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 22px;">Identify</h2>
+				<div class="col-md-12" style="padding: 0; margin-top: 32px; display: none">
+					<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 18px; text-transform: uppercase">Identify</h2>
 					<input type="text" id="candidate" placeholder="Enter the Article Number" />
 				</div>
 			</div>
 		</div>
 	</div>
 	<div class="container">
-		<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 22px;">News Articles Stream</h2>
+		<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 18px; text-transform: uppercase">News Articles Stream</h2>
 		<div class="table-responsive">
 			<table class="table table-bordered">
 				<thead>
@@ -91,15 +91,6 @@
 				<tbody id="candidate-rows">
 				</tbody>
 			</table>
-		</div>
-		<div class="container" style="padding: 0; display: none">
-			<h2 style="font-family: 'Karla'; font-weight: 400; font-size: 22px;">Identify</h2>
-			<input type="text" id="candidate" placeholder="Enter the news title" />
-			<br>
-			<br>
-			<br>
-			<a href="#" onclick="voteForCandidate(0)" class="btn btn-primary" style="display:none">Vote as fake</a>
-			<a href="#" onclick="voteForCandidate(1)" class="btn btn-primary" style="display:none">Vote as genuine</a>
 		</div>
 	</div>
 </body>
