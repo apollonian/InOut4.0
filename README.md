@@ -5,6 +5,8 @@ Our hack is a fake news predictor based on Ethereum Blockchain. The users can ei
 
 As fake news is a challenging problem which developers still aim to solve, this product is an effort geared towards the same.
 
+<img src='https://i.imgur.com/FYZcVbZ.png' />
+
 ## The Team
 1. Abhishek Warokar
 2. Ayush Shukla
@@ -14,7 +16,7 @@ As fake news is a challenging problem which developers still aim to solve, this 
 *Truffle init webpack* gave us a headstart. It is a webpack project which includes contracts, migrations, tests, and user interface to create an application based on Ethereum Blockchain.
 
 ## Future Scope / ToDo
-We did miss implementing some features beacuse of lack of available time, but we aim to get it completed as soon as possible. Improving the interface is certainly one of the priorities. The branch `ab-1` hosts the latest UI. 
+We did miss implementing some features beacuse of lack of available time, but we aim to get it completed as soon as possible. Improving the interface is certainly one of the priorities. The branch `ab-1` hosts the latest UI. A react native app was also under development. 
 
 ## Technologies Used
 + Truffle
