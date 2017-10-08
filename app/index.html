@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Fake News Predictor</title>
+  <title>FNP</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
   <style>
@@ -13,7 +13,7 @@
 </head>
 
 <body class="container">
-  <h1>Fake News Predictor</h1>
+  <h1>FNP</h1>
   <div class="col-sm-7 margin-top-3">
     <h2>News Articles Stream</h2>
     <div class="table-responsive">
@@ -30,18 +30,16 @@
       </table>
     </div>
     <div class="container-fluid">
-      <h2>Identify Fake News</h2>
+      <h2>Identify</h2>
       <div id="msg"></div>
       <input type="text" id="candidate" placeholder="Enter the news title" />
       <br>
       <br>
       <br>
       <input type="text" id="vote-tokens" placeholder="Total no. of tokens to vote for fake" />
-      <br>
+      <a href="#" onclick="voteForNoneCandidate()" class="btn btn-primary">Vote</a>
       <h4>OR</h4>
       <input type="text" id="vote-tokens-none" placeholder="Total no. of tokens to vote for not fake" />
-      <br>
-      <br>
       <a href="#" onclick="voteForCandidate()" class="btn btn-primary">Vote</a>
     </div>
   </div>
@@ -77,7 +75,7 @@
         <a href="#" onclick="buyTokens()" class="btn btn-primary">Buy</a>
       </div>
     </div>
-    <div class="row margin-top-3">
+    <div class="row margin-top-3" style="display: none">
       <h2>Lookup Voter Info</h2>
       <div class="col-sm-12">
         <input type="text" id="voter-info" , class="col-sm-8" placeholder="Enter the voter address" />&nbsp;
