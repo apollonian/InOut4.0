@@ -1,14 +1,6 @@
-# Editor config
+build/
+node_modules/
 .vscode
-
-# Ignoring lock file
-package-lock.json
-
-# Source folders & build
-node_modules
-build
-
-# Misc
 npm-debug.log
 .DS_Store
 .env
